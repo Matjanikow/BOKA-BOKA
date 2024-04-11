@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://cl7jyj6tu08y3"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_nahg3"]
+[ext_resource type="PackedScene" uid="uid://tprvfxtlx3jq" path="res://personaje.tscn" id="2_n3j4p"]
+[ext_resource type="AudioStream" uid="uid://dg5t1t5tks31" path="res://Assets/DALE DALE BOKA.mp3" id="4_44gcp"]
+[ext_resource type="Shader" path="res://world.gdshader" id="6_pq8u7"]
+[ext_resource type="PackedScene" uid="uid://7md68nqfjikc" path="res://enemy.tscn" id="7_q4h6a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a30kn"]
+shader = ExtResource("6_pq8u7")
+shader_parameter/wiggle = 0.03
+shader_parameter/wiggle_speed = 25.0
+shader_parameter/smear = 1.157
+shader_parameter/blur_samples = 15
+
+[node name="World" type="Node"]
+script = ExtResource("1_nahg3")
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="Node2D" type="Node2D" parent="SpawnPoints"]
+position = Vector2(64, 320)
+
+[node name="Node2D2" type="Node2D" parent="SpawnPoints"]
+position = Vector2(192, 320)
+
+[node name="Node2D3" type="Node2D" parent="SpawnPoints"]
+position = Vector2(320, 320)
+
+[node name="Node2D4" type="Node2D" parent="SpawnPoints"]
+position = Vector2(448, 320)
+
+[node name="Node2D5" type="Node2D" parent="SpawnPoints"]
+position = Vector2(576, 320)
+
+[node name="Node2D6" type="Node2D" parent="SpawnPoints"]
+position = Vector2(704, 320)
+
+[node name="Node2D7" type="Node2D" parent="SpawnPoints"]
+position = Vector2(832, 320)
+
+[node name="Node2D8" type="Node2D" parent="SpawnPoints"]
+position = Vector2(960, 320)
+
+[node name="Node2D9" type="Node2D" parent="SpawnPoints"]
+position = Vector2(1088, 320)
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.298039, 0.196078, 0.0745098, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Food" type="Node" parent="."]
+
+[node name="Personaje" parent="." instance=ExtResource("2_n3j4p")]
+position = Vector2(8, 320)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_44gcp")
+
+[node name="Enemy" parent="." groups=["Enemigos"] instance=ExtResource("7_q4h6a")]
+position = Vector2(1136, 320)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_a30kn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true
