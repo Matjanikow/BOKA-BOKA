@@ -1,17 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl7jyj6tu08y3"]
+[gd_scene load_steps=8 format=3 uid="uid://cl7jyj6tu08y3"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_nahg3"]
 [ext_resource type="PackedScene" uid="uid://tprvfxtlx3jq" path="res://personaje.tscn" id="2_n3j4p"]
 [ext_resource type="AudioStream" uid="uid://dg5t1t5tks31" path="res://Assets/DALE DALE BOKA.mp3" id="4_44gcp"]
-[ext_resource type="Shader" path="res://world.gdshader" id="6_pq8u7"]
+[ext_resource type="PackedScene" uid="uid://bx5tvmjl4fkox" path="res://shader.tscn" id="5_kbfxs"]
+[ext_resource type="Theme" uid="uid://d3jdvy00qf882" path="res://menu.tres" id="6_ygn2q"]
+[ext_resource type="FontFile" uid="uid://cshffr38g8xij" path="res://Assets/argentinian-pack/bebidas/PAC-FONT.TTF" id="7_dublo"]
 [ext_resource type="PackedScene" uid="uid://7md68nqfjikc" path="res://enemy.tscn" id="7_q4h6a"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_a30kn"]
-shader = ExtResource("6_pq8u7")
-shader_parameter/wiggle = 0.03
-shader_parameter/wiggle_speed = 25.0
-shader_parameter/smear = 1.157
-shader_parameter/blur_samples = 15
 
 [node name="World" type="Node"]
 script = ExtResource("1_nahg3")
@@ -62,16 +57,43 @@ position = Vector2(8, 320)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_44gcp")
+autoplay = true
 
 [node name="Enemy" parent="." groups=["Enemigos"] instance=ExtResource("7_q4h6a")]
 position = Vector2(1136, 320)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
+[node name="Shader" parent="." instance=ExtResource("5_kbfxs")]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_a30kn")
-anchors_preset = 15
-anchor_right = 1.0
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.180556
+anchor_top = 0.0493827
+anchor_right = 0.470486
+anchor_bottom = 0.160494
+offset_right = -94.0
+offset_bottom = -20.0
+theme = ExtResource("6_ygn2q")
+text = "score:"
+metadata/_edit_use_anchors_ = true
+
+[node name="Score" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.493056
+anchor_right = 0.902778
+anchor_bottom = 0.21142
+theme_override_font_sizes/font_size = 100
+text = "0"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = -1
+anchor_top = 0.888889
+anchor_right = 1.01389
 anchor_bottom = 1.0
+offset_right = -16.0
+theme_override_fonts/font = ExtResource("7_dublo")
+theme_override_font_sizes/font_size = 30
+text = "1 1 1 1 SI PIERDE BOCA PIERDE MI FAMILIA 1 1 1 1 "
+vertical_alignment = 2
 metadata/_edit_use_anchors_ = true

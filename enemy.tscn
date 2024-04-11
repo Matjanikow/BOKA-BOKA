@@ -1,7 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://7md68nqfjikc"]
+[gd_scene load_steps=9 format=3 uid="uid://7md68nqfjikc"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_83bmc"]
 [ext_resource type="Texture2D" uid="uid://bh48ek73hl8nq" path="res://Assets/Rati rati(x8).png" id="2_hbl0m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dxru"]
+atlas = ExtResource("2_hbl0m")
+region = Rect2(0, 0, 69, 23)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v8ibd"]
 atlas = ExtResource("2_hbl0m")
@@ -17,6 +21,14 @@ region = Rect2(138, 0, 68, 74)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kapoa"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dxru")
+}],
+"loop": true,
+"name": &"Ghost",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v8ibd")

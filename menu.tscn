@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlty7m6jy6vmu"]
+
+[ext_resource type="Theme" uid="uid://d3jdvy00qf882" path="res://menu.tres" id="1_c7tmn"]
+[ext_resource type="Script" path="res://menu.gd" id="1_qo81j"]
+[ext_resource type="PackedScene" uid="uid://bx5tvmjl4fkox" path="res://shader.tscn" id="3_vom3x"]
+
+[node name="Menu" type="Node"]
+script = ExtResource("1_qo81j")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+show_behind_parent = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.263722
+anchor_top = 0.099
+anchor_right = 0.75759
+anchor_bottom = 0.321
+offset_left = -7.80801
+offset_top = -0.152008
+offset_right = 0.25592
+offset_bottom = -0.00801086
+theme = ExtResource("1_c7tmn")
+text = "boka boka"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0623333
+anchor_top = 0.568136
+anchor_right = 0.950299
+anchor_bottom = 0.790136
+offset_left = -7.80801
+offset_top = -0.152008
+offset_right = 0.25592
+offset_bottom = -0.00801086
+theme = ExtResource("1_c7tmn")
+text = "TOCA Z PARA JUGAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Shader" parent="." instance=ExtResource("3_vom3x")]

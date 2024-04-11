@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx5tvmjl4fkox"]
+
+[ext_resource type="Shader" path="res://world.gdshader" id="1_ktv00"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a30kn"]
+shader = ExtResource("1_ktv00")
+shader_parameter/wiggle = 0.03
+shader_parameter/wiggle_speed = 25.0
+shader_parameter/smear = 1.157
+shader_parameter/blur_samples = 15
+
+[node name="Shader" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_a30kn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+metadata/_edit_use_anchors_ = true

@@ -17,7 +17,6 @@ func _process(delta):
 		else: 
 			position.x = 0
 	if powerUpTimer > 0:
-		print(powerUpTimer)
 		powerUpTimer -= delta
 	else:
 		Global.powerUp = false
@@ -27,7 +26,7 @@ func flip():
 	personajeSprite.flip_h = !personajeSprite.flip_h
 
 func morir():
-	print("me morí")
+	get_tree().change_scene_to_file("res://menu.tscn")
 
 func powerUp():
 	powerUpTimer = 200

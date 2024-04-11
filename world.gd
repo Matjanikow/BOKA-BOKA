@@ -1,9 +1,11 @@
 extends Node
 
 @onready var spawnPoints: Array = [$SpawnPoints/Node2D, $SpawnPoints/Node2D2, $SpawnPoints/Node2D3, $SpawnPoints/Node2D4, $SpawnPoints/Node2D5, $SpawnPoints/Node2D6, $SpawnPoints/Node2D7, $SpawnPoints/Node2D8, $SpawnPoints/Node2D9]
+@onready var score = $Score
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	score.text = str(Global.actualScore)
 	randomize()
 	if Global.foodRemaining == 0:
 		respawnFood()
