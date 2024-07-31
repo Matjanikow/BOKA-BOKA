@@ -4,7 +4,7 @@ extends Node
 @onready var score = $Score
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	score.text = str(Global.actualScore)
 	randomize()
 	if Global.foodRemaining == 0:

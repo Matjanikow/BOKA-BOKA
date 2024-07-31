@@ -1,13 +1,14 @@
 extends Node2D
 
-@onready var velocidad: int = 7.3
+@onready var velocidad: float = 7.3
 @onready var personaje = $"../Personaje"
 @onready var enemigoSprite = $Sprite2D
 @onready var muerto = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if !muerto:
+		enemigoSprite.use_parent_material = !Global.powerUp
 		alive_process()
 	else:
 		position.x = clamp(position.x + velocidad, 56 , get_viewport_rect().size.x-56)
@@ -37,7 +38,6 @@ func alive_process():
 			enemigoSprite.flip_h = true
 
 func _on_area_2d_area_entered(area):
-	
 	if area.get_parent().is_in_group("Personaje") && !muerto:
 		if Global.powerUp:
 			enemigoSprite.animation = "Ghost"

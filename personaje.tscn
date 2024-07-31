@@ -45,7 +45,6 @@ sprite_frames = SubResource("SpriteFrames_jmp40")
 autoplay = "default"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="AnimatedSprite2D"]
-scale = Vector2(1, 1)
 
 [node name="Area2D" type="Area2D" parent="."]
 

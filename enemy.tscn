@@ -1,7 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://7md68nqfjikc"]
+[gd_scene load_steps=11 format=3 uid="uid://7md68nqfjikc"]
 
 [ext_resource type="Script" path="res://Enemy.gd" id="1_83bmc"]
 [ext_resource type="Texture2D" uid="uid://bh48ek73hl8nq" path="res://Assets/Rati rati(x8).png" id="2_hbl0m"]
+[ext_resource type="Shader" path="res://enemy.gdshader" id="2_yf28x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qp5ky"]
+shader = ExtResource("2_yf28x")
+shader_parameter/line_thickness = 1.0
+shader_parameter/sin_frequency = 0.5
+shader_parameter/sin_offset = 0.0
+shader_parameter/light_offset = 0.5
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1dxru"]
 atlas = ExtResource("2_hbl0m")
@@ -52,6 +60,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_83bmc")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_qp5ky")
 scale = Vector2(1.26471, 1.35135)
 sprite_frames = SubResource("SpriteFrames_kapoa")
 autoplay = "default"
